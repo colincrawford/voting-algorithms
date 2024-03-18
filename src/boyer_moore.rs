@@ -34,7 +34,7 @@ pub fn boyer_moore(votes: Vec<&str>) -> Option<&str> {
     }
 
     // For our `candidate` to win, they must get greater than 50% of the votes.
-    let threshold = votes.len() / 2;
+    let threshold = ((votes.len() as f64) / (2 as f64)).floor() as usize;
     let end_candidate_count = votes.iter().filter(|&vote| *vote == candidate).count();
 
     if end_candidate_count > threshold {
